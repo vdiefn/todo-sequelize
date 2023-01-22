@@ -74,7 +74,8 @@ app.post('/users/register', (req, res) => {
 
 //登出
 app.get('/users/logout', (req, res) => {
-  res.send('logout')
+  req.logout()
+  res.redirect('/users/login')
 })
 
 //查詢特定todo
