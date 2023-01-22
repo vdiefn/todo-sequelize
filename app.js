@@ -1,11 +1,13 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
+const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const bcrypt = require('bcryptjs')
 const db = require('./models')
 const session = require('express-session')
 const usePassport = require('./config/passport')
+const todo = require('./models/todo')
 const Todo = db.Todo
 const User = db.User
 const app = express()
@@ -86,6 +88,24 @@ app.get('/todos/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//修改todo
+app.get('/todos/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Todo.findByPk(id)
+    .then((todo) => res.render('edit', { todo: todo.toJSON()}))
+    .catch(error => console.log(error))
+})
+app.put('/todos/:id', (req, res) => {
+  const id = req.params.id
+  const name = req.body.name
+  return Todo.findByPk(id)
+    .then(todo => {
+      todo.name = name
+      return todo.save()
+    })
+    .then (() => res.redirect(`/todos/${id}`))
+    .catch(error => {console.log(error)})
+})
 
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)
