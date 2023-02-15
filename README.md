@@ -1,8 +1,8 @@
-#To-do List x Sequelize
+# To-do List x Sequelize
 ![image](https://github.com/vdiefn/todo-sequelize/blob/main/todo-sequelize.jpg)
 ![image](https://github.com/vdiefn/todo-sequelize/blob/main/todo-sequelize-2.jpg)
 
-##功能
+## 功能
 
 * 使用者可於註冊帳號後開始使用，註冊的資料包括：名字、email、密碼。
 
@@ -15,7 +15,7 @@
 4. 刪除代辦事項
 
 
-##開發工具
+## 開發工具
 - Node.js
 - Express@4.16.4
 - Express-handlebars@3.0.0
@@ -30,10 +30,10 @@
 - sequelize@5.21.13
 - sequelize-cli@5.5.1
 
-##使用資料庫
+## 使用資料庫
 - SQL
 
-##開始使用
+## 開始使用
 - clone專案至電腦
 - 進入專案資料夾
 - 專案下載完成後輸入：
